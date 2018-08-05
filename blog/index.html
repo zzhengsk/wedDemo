@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>Project all comment used functions website demo</title>
+<script type="text/javascript" src="js/tool.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/ajax.js"></script>
+<script type="text/javascript" src="js/json3.js"></script>
+<script type="text/javascript" src="js/base_drag.js"></script>
+<script type="text/javascript" src="js/base_form.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+<body>
+
+<div id="header_bg">
+	<div id="header">
+		<div class="logo"><img src="images/logo.gif" alt="" /></div>
+		<div class="member">My Center
+			<ul class="member_ul">
+				<li><a href="###">Post Blog</a></li>
+				<li><a href="###">Theme</a></li>
+				<li><a href="###">Help</a></li>
+				<li><a href="###">Log Out</a></li>
+			</ul>
+		</div>
+		<div class="reg">Register</div>
+		<div class="login">Login</div>
+		<div class="info"></div>
+	</div>
+</div>
+
+<div id="reg">
+	<h2><img src="images/close.png" alt="" class="close" />Member Register</h2>
+	<form name="reg">
+	<dl>
+		<dd>username： <input type="text" name="user" class="text" />
+			<span class="info info_user">2-20 characters, (alphabet, number or _)</span>
+			<span class="error error_user">Invaild, input again!</span>
+			<span class="succ succ_user">Available</span>
+			<span class="loading">Checking Username...</span>
+		</dd>
+		<dd>password：&nbsp;<input type="password" name="pass" class="text" />
+			<span class="info info_pass">
+				<p>Safety Level：<strong class="s s1">■</strong><strong class="s s2">■</strong><strong class="s s3">■</strong> <strong class="s s4" style="font-weight:normal;"></strong></p>
+				<p><strong class="q1" style="font-weight:normal;">○</strong> 6-20 characters</p>
+				<p><strong class="q2" style="font-weight:normal;">○</strong> Upper/LowerCase, Number, Non_space</p>
+				<p><strong class="q3" style="font-weight:normal;">○</strong> Contain at least any two kinds</p>
+			</span>
+			<span class="error error_pass">Invaild, input again!</span>
+			<span class="succ succ_pass">Available</span>
+		</dd>
+		<dd>password：&nbsp;<input type="password" name="notpass" class="text" />
+			<span class="info info_notpass">Input Password Again</span>
+			<span class="error error_notpass">Not Match, Input Again</span>
+			<span class="succ succ_notpass">Available</span>
+		</dd>
+		<dd><span style="vertical-align:-2px">questions：</span> <select name="ques">
+									<option value="0">- - - - Select One - - - -</option>
+									<option value="1">- - Your favorite food</option>
+									<option value="2">- - your pet's name</option>
+									<option value="3">- - Your mother maiden name</option>
+									<option value="4">- - your favorite star</option>
+								  </select>
+			<span class="error error_ques">Please choose one!</span>				  
+		</dd>
+		<dd>answer&nbsp;&nbsp;&nbsp;&nbsp;：&nbsp;<input type="text" name="ans" class="text" />
+			<span class="info info_ans">Answer: 2-32 words</span>
+			<span class="error error_ans">Invaild, input again!</span>
+			<span class="succ succ_ans">Available</span>
+		</dd>
+		<dd>Email &nbsp;&emsp;：&nbsp;<input type="text" name="email" class="text" autocomplete="off" />
+			<span class="info info_email">Input Email Address</span>
+			<span class="error error_email">Invaild, input again!</span>
+			<span class="succ succ_email">Available</span>
+			<ul class="all_email">
+				<li><span></span>@gmail.com</li>				
+				<li><span></span>@hotmail.com</li>
+				<li><span></span>@yahoo.com</li>
+				<li><span></span>@sina.com.cn</li>
+				<li><span></span>@sohu.com</li>
+			</ul>
+		</dd>
+		<dd class="birthday"><span style="vertical-align:-2px">birthday&nbsp;：&nbsp;</span> <select name="year">
+									<option value="0">- Year -</option>
+								  </select> -
+								  <select name="month">
+									<option value="0">- Month -</option>
+								  </select> -
+								  <select name="day">
+									<option value="0">- Day -</option>
+								  </select>
+			<span class="error error_birthday">Choose the birthday</span>	  
+		</dd>
+		<dd style="height:105px;"><span style="vertical-align:85px">comment：</span> <textarea name="ps"></textarea></dd>			
+		<dd style="display:block;" class="ps">Still can input<strong class="num">200</strong>words</dd>	
+		<dd style="display:none;" class="ps">Over<strong class="num"></strong>words. ?<span class="clear">Clear Overflow</span></dd>		
+		<dd style="padding:0 0 0 80px;"><input type="button" name="sub" class="submit" /></dd>
+	</dl>
+	</form>
+</div>
+
+<div id="login">
+	<h2><img src="images/close.png" alt="" class="close" />Website Login</h2>
+	<form name="login">
+	<div class="info"></div>
+	<div class="user">username: <input type="text" name="user" class="text" /></div>
+	<div class="pass">password: <input type="password" name="pass" class="text" /></div>
+	<div class="button"><input type="button" name="sub" class="submit" value="" /></div>
+	<div class="other">register | forget password?</div>
+	</form>
+</div>
+
+<div id="blog">
+	<h2><img src="images/close.png" alt="" class="close" />Post Blog</h2>
+	<div class="info"></div>
+	<form name="blog">
+	<dl>
+		<dd>Title：&emsp;&nbsp;&nbsp;&nbsp; <input type="text" name="title" class="title" /> (*Can't Empty)</dd>
+		<dd><span style="vertical-align:85px">Content：</span> <textarea name="content" class="content"></textarea> <span style="vertical-align:45px">(*Can't Empty)</span></dd>				
+		<dd style="padding:10px 0 0 86px;"><input type="button" name="sub" class="submit" /></dd>
+	</dl>
+	</form>
+</div>
+
+<div id="theme">
+	<h2><img src="images/close.png" alt="" class="close" />Change Theme</h2>
+	<div class="theme_bg">
+
+	</div>
+</div>
+
+<div id="nav">
+	<ul class="about">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<ul class="black">
+		<li>Home</li>
+		<li>Blogs</li>
+		<li>Albums</li>
+		<li>Music</li>
+		<li>About Me</li>
+	</ul>
+	<div class="nav_bg">
+		<ul class="white">
+			<li>Home</li>
+			<li>Blogs</li>
+			<li>Albums</li>
+			<li>Music</li>
+			<li>About Me</li>
+		</ul>
+	</div>	
+</div>
+
+
+<div id="main">
+	<div id="sidebar">
+		<h2>Title 1 (click it)</h2>
+		<ul>
+			<li><a href="###">content 1: something something</a></li>
+			<li><a href="###">content 2: something something</a></li>
+			<li><a href="###">content 3: something something</a></li>
+			<li><a href="###">content 4: something something</a></li>
+			<li><a href="###">content 5: something something</a></li>
+		</ul>
+		<h2>Title 2 (click it)</h2>
+		<ul>
+			<li><a href="###">content 1: something something</a></li>
+			<li><a href="###">content 2: something something</a></li>
+			<li><a href="###">content 3: something something</a></li>
+			<li><a href="###">content 4: something something</a></li>
+			<li><a href="###">content 5: something something</a></li>
+		</ul>
+		<h2>Title 3 (click it)</h2>
+		<ul>
+			<li><a href="###">content 1: something something</a></li>
+			<li><a href="###">content 2: something something</a></li>
+			<li><a href="###">content 3: something something</a></li>
+			<li><a href="###">content 4: something something</a></li>
+			<li><a href="###">content 5: something something</a></li>
+		</ul>
+	</div>
+	<div id="index">
+		
+	</div>
+	<div id="banner">
+		<img src="images/banner1.jpg" alt="1st Picture" />
+		<img src="images/banner2.jpg" alt="2nd Picture" />
+		<img src="images/banner3.jpg" alt="3rd Picture" />
+		<ul>
+			<li>●</li>
+			<li>●</li>
+			<li>●</li>
+		</ul>
+		<span></span>
+		<strong></strong>
+	</div>
+	<div id="photo">
+		<dl>
+			<dt><img xsrc="images/p1.jpg" bigsrc="images/p1big.jpg" src="images/wait_load.jpg" class="wait_load" alt="" /></dt>
+			<dd>delay loading picture</dd>
+		</dl>
+
+		<dl>
+			<dt><img xsrc="images/p2.jpg" bigsrc="images/p2big.jpg" src="images/wait_load.jpg" class="wait_load" alt="" /></dt>
+			<dd>delay loading picture</dd>
+		</dl>
+		
+		<dl>
+			<dt><img xsrc="images/p3.jpg" bigsrc="images/p3big.jpg" src="images/wait_load.jpg" class="wait_load" alt="" /></dt>
+			<dd>delay loading picture</dd>
+		</dl>
+		
+		<dl>
+			<dt><img xsrc="images/p4.jpg" bigsrc="images/p4big.jpg" src="images/wait_load.jpg" class="wait_load" alt="" /></dt>
+			<dd>delay loading picture</dd>
+		</dl>
+		
+		<dl>
+			<dt><img xsrc="images/p5.jpg" bigsrc="images/p5big.jpg" src="images/wait_load.jpg" class="wait_load" alt="" /></dt>
+			<dd>delay loading picture</dd>
+		</dl>
+		
+		<dl>
+			<dt><img xsrc="images/p6.jpg" bigsrc="images/p6big.jpg" src="images/wait_load.jpg" class="wait_load" alt="" /></dt>
+			<dd>delay loading picture</dd>
+		</dl>
+
+		<dl>
+			<dt><img xsrc="images/p7.jpg" bigsrc="images/p7big.jpg" src="images/wait_load.jpg" class="wait_load" alt="" /></dt>
+			<dd>delay loading picture</dd>
+		</dl>
+		
+		<dl>
+			<dt><img xsrc="images/p8.jpg" bigsrc="images/p8big.jpg" src="images/wait_load.jpg" class="wait_load" alt="" /></dt>
+			<dd>delay loading picture</dd>
+		</dl>
+		
+		<dl>
+			<dt><img xsrc="images/p9.jpg" bigsrc="images/p9big.jpg" src="images/wait_load.jpg" class="wait_load" alt="" /></dt>
+			<dd>delay loading picture</dd>
+		</dl>
+		
+		<dl>
+			<dt><img xsrc="images/p10.jpg" bigsrc="images/p10big.jpg" src="images/wait_load.jpg" class="wait_load" alt="" /></dt>
+			<dd>delay loading picture</dd>
+		</dl>
+		
+		<dl>
+			<dt><img xsrc="images/p11.jpg" bigsrc="images/p11big.jpg" src="images/wait_load.jpg" class="wait_load" alt="" /></dt>
+			<dd>delay loading picture</dd>
+		</dl>
+		
+		<dl>
+			<dt><img xsrc="images/p12.jpg" bigsrc="images/p12big.jpg" src="images/wait_load.jpg" class="wait_load" alt="" /></dt>
+			<dd>delay loading picture</dd>
+		</dl>
+
+		
+	</div>
+	
+	<div id="footer">
+		<p>CopyRight</p>
+		<p>CopyRight</p>
+	</div>
+</div>
+
+<!-- this is for the baidu share, which is from the http://share.baidu.com/ -->
+<div id="share">
+	<h2>分享到</h2>
+	<ul>
+		<li><a href="###" class="a">一键分享</a></li>
+		<li><a href="###" class="b">新浪微博</a></li>
+		<li><a href="###" class="c">人人网</a></li>
+		<li><a href="###" class="d">百度相册</a></li>
+		<li><a href="###" class="e">腾讯朋友</a></li>
+		<li><a href="###" class="f">豆瓣网</a></li>
+		<li><a href="###" class="g">百度新首页</a></li>
+		<li><a href="###" class="h">和讯微博</a></li>
+		<li><a href="###" class="i">QQ 空间</a></li>
+		<li><a href="###" class="j">百度搜藏</a></li>
+		<li><a href="###" class="k">腾讯微博</a></li>
+		<li><a href="###" class="l">开心网</a></li>
+		<li><a href="###" class="m">百度贴吧</a></li>
+		<li><a href="###" class="n">搜狐微博</a></li>
+		<li><a href="###" class="o">QQ 好友</a></li>
+		<li><a href="###" class="p">更多...</a></li>
+	</ul>
+	<div class="share_footer"><a href="###">百度分享</a><span></span></div>
+</div>
+
+<div id="photo_big">
+	<h2><img src="images/close.png" alt="" class="close" />Preload Photo</h2>
+	<div class="big">
+		<img src="images/loading.gif" alt="" />
+		<strong class="sl">&lt;</strong>
+		<strong class="sr">&gt;</strong>
+		<span class="left"></span>
+		<span class="right"></span>
+		<em class="index"></em>
+	</div>
+</div>
+
+<div id="loading">
+	<p>loading</p>
+</div>
+
+<div id="success">
+	<p>success</p>
+</div>
+
+<div id="screen"></div>
+
+<div id="test" style="clear:both;"></div>
+
+</body>
+</html>
